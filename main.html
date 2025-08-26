@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katsiaryna Kavalchuk - Project Manager</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #2d3748;
+            background: linear-gradient(135deg, #fdf2f8 0%, #ffffff 100%);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header/Hero Section */
+    .hero {
+            background: linear-gradient(135deg, #ffffff 0%, #fdf2f8 100%);
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20"><defs><pattern id="grain" width="100" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="5" r="0.5" fill="%23f9a8d4" opacity="0.1"/><circle cx="30" cy="15" r="0.3" fill="%23f9a8d4" opacity="0.1"/><circle cx="70" cy="8" r="0.4" fill="%23f9a8d4" opacity="0.1"/><circle cx="90" cy="12" r="0.2" fill="%23f9a8d4" opacity="0.1"/></pattern></defs><rect width="100" height="20" fill="url(%23grain)"/></svg>');
+            pointer-events: none;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 10px;
+        }
+        
+        .hero .accent-line {
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #f9a8d4, #fbcfe8);
+            margin: 0 auto 20px;
+            border-radius: 2px;
+        }
+        
+        .hero .subtitle {
+            font-size: 1.5rem;
+            color: #e91e63;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+        
+        .hero .tagline {
+            font-size: 1.1rem;
+            color: #4a5568;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #e91e63, #f9a8d4);
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(233, 30, 99, 0.4);
+        }
+        
+        /* Section Styles */
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #f9a8d4, #fbcfe8);
+            border-radius: 2px;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #6b7280;
+            margin-bottom: 60px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* About Section */
+        .about {
+            background: white;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .about-text .highlight {
+            color: #e91e63;
+            font-weight: 600;
+        }
+        
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #fdf2f8, #ffffff);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid #fce7f3;
+            transition: all 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(233, 30, 99, 0.1);
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #e91e63;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            color: #6b7280;
+            font-weight: 500;
+        }
+        
+        /* Experience Section */
+        .experience {
+            background: linear-gradient(135deg, #fdf2f8 0%, #ffffff 100%);
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, #f9a8d4, #fbcfe8);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+            padding-left: 80px;
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            left: 18px;
+            top: 0;
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, #e91e63, #f9a8d4);
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 0 0 3px #fce7f3;
+        }
+        
+        .timeline-content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 4px solid #f9a8d4;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-content:hover {
+            transform: translateX(5px);
+            box-shadow: 0 8px 25px rgba(233, 30, 99, 0.15);
+        }
+        
+        .job-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #e91e63;
+            margin-bottom: 5px;
+        }
+        
+        .company {
+            font-size: 1.1rem;
+            color: #1a202c;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+        
+        .duration {
+            color: #6b7280;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+        
+        .job-description {
+            color: #4a5568;
+            line-height: 1.6;
+        }
+        
+        .job-description ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .job-description li {
+            margin-bottom: 8px;
+        }
+        
+        /* Skills Section */
+        .skills {
+            background: white;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .skill-category {
+            background: linear-gradient(135deg, #fdf2f8, #ffffff);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid #fce7f3;
+        }
+        
+        .skill-category h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #e91e63;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .skill-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .skill-name {
+            font-weight: 500;
+            color: #2d3748;
+        }
+        
+        .skill-level {
+            display: flex;
+            gap: 3px;
+        }
+        
+        .skill-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #e5e7eb;
+        }
+        
+        .skill-dot.filled {
+            background: linear-gradient(135deg, #e91e63, #f9a8d4);
+        }
+        /* Text badges to replace dot gauges */
+        .skill-badge {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 999px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #1a202c;
+            background: #eef2ff; /* default light background */
+        }
+        .skill-badge.advanced {
+            background: rgba(199, 210, 254, 0.6);
+            color: #1e293b;
+        }
+        .skill-badge.expert {
+            background: rgba(187, 247, 208, 0.6);
+            color: #064e3b;
+        }
+        .skill-badge.intermediate {
+            background: rgba(253, 230, 138, 0.6);
+            color: #5c3d00;
+        }
+        
+        /* Languages Section */
+        .languages {
+            background: linear-gradient(135deg, #fdf2f8 0%, #ffffff 100%);
+        }
+        
+        .languages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .language-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid #fce7f3;
+            transition: all 0.3s ease;
+        }
+        
+        .language-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(233, 30, 99, 0.1);
+        }
+        
+        .language-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #1a202c;
+            margin-bottom: 10px;
+        }
+        
+        .language-level {
+            color: #e91e63;
+            font-weight: 500;
+        }
+        
+        /* Education Section */
+        .education {
+            background: white;
+        }
+        
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .education-card {
+            background: linear-gradient(135deg, #fdf2f8, #ffffff);
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 4px solid #f9a8d4;
+            transition: all 0.3s ease;
+        }
+        
+        .education-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(233, 30, 99, 0.1);
+        }
+        
+        .degree {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #e91e63;
+            margin-bottom: 5px;
+        }
+        
+        .university {
+            font-size: 1rem;
+            color: #1a202c;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+        
+        .edu-duration {
+            color: #6b7280;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+        
+        .edu-details {
+            color: #4a5568;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, #e91e63, #f9a8d4);
+            color: white;
+            text-align: center;
+        }
+        
+        .contact .section-title {
+            color: white;
+        }
+        
+        .contact .section-title::after {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .contact-item i {
+            font-size: 1.3rem;
+        }
+        
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+        
+        .contact-item a:hover {
+            opacity: 0.8;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .about-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline::before {
+                left: 15px;
+            }
+            
+            .timeline-item {
+                padding-left: 50px;
+            }
+            
+            .timeline-dot {
+                left: 3px;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .skills-grid,
+            .education-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Print Styles */
+        @media print {
+            .hero {
+                padding: 40px 0;
+            }
+            
+            .section {
+                padding: 40px 0;
+            }
+            
+            .timeline-content:hover,
+            .stat-card:hover,
+            .language-card:hover,
+            .education-card:hover {
+                transform: none;
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Katsiaryna Kavalchuk</h1>
+                <div class="accent-line"></div>
+                <div class="subtitle">Multilingual Project Manager</div>
+                <p class="tagline">Proactive project manager with international experience in EdTech, SaaS, and digital content. Fluent in English, Chinese, and Russian with expertise in cross-cultural team leadership.</p>
+                <a href="#contact" class="cta-button">
+                    <i class="fas fa-envelope"></i> Get In Touch
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Hello! My name is <span class="highlight">Katsiaryna</span>, and I'm passionate about connecting cultures through effective project management.</p>
+                    
+                    <p>I lived, studied, and worked in <span class="highlight">China for 5 years</span>, gaining experience in international teams and business development. I have a solid background in IT with understanding of product development processes.</p>
+                    
+                    <p>My greatest strength is the ability to collaborate effectively with people from diverse cultures, switch between languages with ease, and thrive in <span class="highlight">fast-paced international environments</span>.</p>
+                    
+                    <p>I hold multiple degrees in Linguistics and Business Administration, <span class="highlight">graduated with honors</span>, and I'm currently pursuing a Master's in Project Management.</p>
+                </div>
+                
+                <div class="about-stats">
+                    <div class="stat-card">
+                        <div class="stat-number">5+</div>
+                        <div class="stat-label">Years living in China</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">4</div>
+                        <div class="stat-label">Languages</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">4</div>
+                        <div class="stat-label">Degrees (incl. ongoing Master's)</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">2+</div>
+                        <div class="stat-label">Years of relevant Experience</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Skills Section moved to About -->
+            <div style="margin-top: 60px;">
+                <h3 style="text-align: center; font-size: 2rem; font-weight: 600; color: #e91e63; margin-bottom: 40px;">Skills & Expertise</h3>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Project Management</h3>
+                        <div class="skill-item">
+                            <span class="skill-name">Agile & Scrum</span>
+                            <div class="skill-level">
+                                <span class="skill-badge advanced">Advanced</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">SDLC</span>
+                            <div class="skill-level">
+                                <span class="skill-badge advanced">Advanced</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Stakeholder Management</span>
+                            <div class="skill-level">
+                                <span class="skill-badge advanced">Advanced</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>Tools & Platforms</h3>
+                        <div class="skill-item">
+                            <span class="skill-name">Jira & Confluence</span>
+                            <div class="skill-level">
+                                <span class="skill-badge advanced">Advanced</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Monday & Notion</span>
+                            <div class="skill-level">
+                                <span class="skill-badge advanced">Advanced</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">CRM Systems</span>
+                            <div class="skill-level">
+                                <span class="skill-badge advanced">Advanced</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Git/Source code management</span>
+                            <div class="skill-level">
+                                <span class="skill-badge advanced">Medium</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>Business Skills</h3>
+                        <div class="skill-item">
+                            <span class="skill-name">Client Relations</span>
+                            <div class="skill-level">
+                                <span class="skill-badge advanced">Advanced</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Cross-cultural Communication</span>
+                            <div class="skill-level">
+                                <span class="skill-badge advanced">Advanced</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Business Analysis</span>
+                            <div class="skill-level">
+                                <span class="skill-badge advanced">Advanced</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>Languages</h3>
+                        <div class="skill-item">
+                            <span class="skill-name">English</span>
+                            <span class="skill-level">C1 (fluent)</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Chinese (Mandarin)</span>
+                            <span class="skill-level">HSK 5 (approx. C1)</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Russian and Belarusian</span>
+                            <span class="skill-level">Native</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Spanish</span>
+                            <span class="skill-level">A2 (basic)</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Polish</span>
+                            <span class="skill-level">A2 (basic)</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>AI</h3>
+                        <div class="skill-item">
+                            <span class="skill-name">ChatGPT</span>
+                            <div class="skill-level">
+                                <span class="skill-badge advanced">Advanced</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Agentic workflow</span>
+                            <div class="skill-level">
+                                <span class="skill-badge advanced">Advanced</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Automatization</span>
+                            <div class="skill-level">
+                                <span class="skill-badge advanced">Advanced</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience section">
+        <div class="container">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="job-title">Project Manager</div>
+                        <div class="company">DeoVR Streaming Platform, Ljubljana</div>
+                        <div class="duration">May 2024 - June 2025</div>
+                        <div class="job-description">
+                            <ul>
+                                <li>Managed end-to-end partner support for creators and studios across onboarding, monetization, and payouts</li>
+                                <li>Acted as liaison between partners and internal teams (tech, billing, content, legal, data)</li>
+                                <li>Co-developed performance dashboard with data team and analyzed KPIs</li>
+                                <li>Supported implementation of new monetization system</li>
+                                <li>Contributed to product development and strategic business growth alongside CEO</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="job-title">Localization Manager | Translator</div>
+                        <div class="company">ATCG Tõlkebüroo (Freelance), Tallinn</div>
+                        <div class="duration">August 2019 - June 2025</div>
+                        <div class="job-description">
+                            <ul>
+                                <li>Delivered high-quality translations in 5 languages for websites, mobile apps, and IT documentation</li>
+                                <li>Managed translation projects from scoping to delivery</li>
+                                <li>Coordinated tasks across freelancers and internal teams</li>
+                                <li>Maintained client relationships and project timelines</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="job-title">Early Career Management Roles</div>
+                        <div class="company">Skyeng, EPAM, International Schools</div>
+                        <div class="duration">October 2016 - July 2023</div>
+                        <div class="job-description">
+                            <ul>
+                                <li>Coordinated client-facing digital projects across EdTech platforms</li>
+                                <li>Managed distributed cross-functional teams including designers and content creators</li>
+                                <li>Provided full-cycle client support from onboarding to ongoing communication</li>
+                                <li>Maintained and operated CRM systems for performance tracking</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Languages Section removed and merged into Skills -->
+
+    <!-- Education Section -->
+    <section class="education section">
+        <div class="container">
+            <h2 class="section-title">Education & Certifications</h2>
+            <div class="education-grid">
+                <div class="education-card">
+                    <div class="degree">Master in Project Management</div>
+                    <div class="university">Synergy University, College of Management</div>
+                    <div class="edu-duration">Current</div>
+                    <div class="edu-details">Remote learning program focusing on advanced project management methodologies</div>
+                </div>
+                
+                <div class="education-card">
+                    <div class="degree">IT Project Management</div>
+                    <div class="university">IT Academy</div>
+                    <div class="edu-duration">Dec 2024 - Apr 2025</div>
+                    <div class="edu-details">Intensive hands-on IT Project Management course</div>
+                </div>
+                
+                <div class="education-card">
+                    <div class="degree">Bachelor in Business Administration</div>
+                    <div class="university">Shanghai University, College of Management</div>
+                    <div class="edu-duration">Sep 2021 - Jun 2025</div>
+                    <div class="edu-details">Thesis: "Challenges of remote team management in European technology companies"</div>
+                </div>
+                
+                <div class="education-card">
+                    <div class="degree">Bachelor in English and Spanish Translation</div>
+                    <div class="university">Synergy University</div>
+                    <div class="edu-duration">Sep 2020 - Nov 2024</div>
+                    <div class="edu-details">Graduated with honors. Thesis: "Video Advertisement Localization"</div>
+                </div>
+                
+                <div class="education-card">
+                    <div class="degree">Bachelor in English and Chinese Translation</div>
+                    <div class="university">Minsk State Linguistic University</div>
+                    <div class="edu-duration">Sep 2017 - Sep 2021</div>
+                    <div class="edu-details">Technical translation focus. Served as group leader</div>
+                </div>
+                
+                <div class="education-card">
+                    <div class="degree">Additional Certifications</div>
+                    <div class="university">Google, AWS, Various</div>
+                    <div class="edu-duration">2022 - 2024</div>
+                    <div class="edu-details">Google Project Management, DevOps on AWS, HSK 5 Chinese Certification, International Trade Competition awards</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+        <div class="container">
+            <h2 class="section-title">Get in Touch</h2>
+            <p class="section-subtitle" style="color: rgba(255,255,255,0.9);">I'm always excited to connect! Reach out via any method below:</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Warsaw, Poland</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    <a href="https://www.linkedin.com/in/katsiaryna-kavalchuk/" target="_blank">linkedin.com/in/katsiaryna-kavalchuk</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:catforchina@gmail.com">catforchina@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <a href="tel:+48572577094">+48 572577094</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+</body>
+</html>
